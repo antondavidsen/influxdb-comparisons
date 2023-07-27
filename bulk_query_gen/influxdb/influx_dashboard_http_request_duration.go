@@ -5,7 +5,7 @@ import (
 )
 import (
 	"fmt"
-	bulkQuerygen "github.com/influxdata/influxdb-comparisons/bulk_query_gen"
+	bulkQuerygen "github.com/antondavidsen/influxdb-comparisons/bulk_query_gen"
 )
 
 // InfluxDashboardHttpRequestDuration produces Influx-specific queries for the dashboard single-host case.

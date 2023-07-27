@@ -21,11 +21,11 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 
+	"github.com/antondavidsen/influxdb-comparisons/bulk_load"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/mongodb"
+	"github.com/antondavidsen/influxdb-comparisons/mongo_serialization"
+	"github.com/antondavidsen/influxdb-comparisons/util/report"
 	"github.com/google/flatbuffers/go"
-	"github.com/influxdata/influxdb-comparisons/bulk_load"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/mongodb"
-	"github.com/influxdata/influxdb-comparisons/mongo_serialization"
-	"github.com/influxdata/influxdb-comparisons/util/report"
 )
 
 // Magic database constants
@@ -363,12 +363,12 @@ func (l *MongoBulkLoad) toBsonD(item *mongo_serialization.Item, doc bson.D) bson
 	destField := &mongo_serialization.Field{}
 
 	if mongodb.UseTimeseries {
-		doc = append(doc, bson.E{ Key: "timestamp", Value: time.Unix(0, item.TimestampNanos())})
+		doc = append(doc, bson.E{Key: "timestamp", Value: time.Unix(0, item.TimestampNanos())})
 	} else {
 		if mongodb.UseSingleCollection {
 			doc = append(doc, bson.E{Key: "measurement", Value: unsafeBytesToString(item.MeasurementNameBytes())})
 		}
-		doc = append(doc, bson.E{ Key:"timestamp_ns", Value: item.TimestampNanos()})
+		doc = append(doc, bson.E{Key: "timestamp_ns", Value: item.TimestampNanos()})
 	}
 
 	var tags interface{}
@@ -395,10 +395,10 @@ func (l *MongoBulkLoad) toBsonD(item *mongo_serialization.Item, doc bson.D) bson
 		if mongodb.DocumentFormat == mongodb.FlatFormat {
 			tagsM[tagKey] = tagValue
 		} else {
-			tagsA[i] = bson.D{{"key", tagKey }, {"val", tagValue }}
+			tagsA[i] = bson.D{{"key", tagKey}, {"val", tagValue}}
 		}
 	}
-	doc = append(doc, bson.E{ Key: "tags", Value: tags })
+	doc = append(doc, bson.E{Key: "tags", Value: tags})
 
 	var fields interface{}
 	var fieldsM bson.M
@@ -433,10 +433,10 @@ func (l *MongoBulkLoad) toBsonD(item *mongo_serialization.Item, doc bson.D) bson
 		if mongodb.DocumentFormat == mongodb.FlatFormat {
 			fieldsM[fieldKey] = fieldValue
 		} else {
-			fieldsA[i] = bson.D{{"key", fieldKey }, { "val", fieldValue }}
+			fieldsA[i] = bson.D{{"key", fieldKey}, {"val", fieldValue}}
 		}
 	}
-	doc = append(doc, bson.E{ Key: "fields", Value: fields })
+	doc = append(doc, bson.E{Key: "fields", Value: fields})
 	return doc
 }
 
@@ -529,7 +529,7 @@ func mustCreateCollections(daemonUrl string, dbName string) {
 			Unique: &f, // Unique does not work on the entire array of tags!
 			//	DropDups:   true, // mgo driver option, missing in mongo driver
 			Background: &f,
-			Sparse: &f,
+			Sparse:     &f,
 		},
 	}
 

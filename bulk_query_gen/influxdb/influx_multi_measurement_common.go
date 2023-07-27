@@ -5,8 +5,8 @@ import (
 	"math/rand"
 	"time"
 
-	multiMeasurement "github.com/influxdata/influxdb-comparisons/bulk_data_gen/multi_measurement"
-	bulkQuerygen "github.com/influxdata/influxdb-comparisons/bulk_query_gen"
+	multiMeasurement "github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/multi_measurement"
+	bulkQuerygen "github.com/antondavidsen/influxdb-comparisons/bulk_query_gen"
 )
 
 type InfluxMultiMeasurement struct {

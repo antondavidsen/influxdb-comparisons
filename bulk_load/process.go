@@ -1,7 +1,7 @@
 package bulk_load
 
 import (
-	"github.com/influxdata/influxdb-comparisons/util/report"
+	"github.com/antondavidsen/influxdb-comparisons/util/report"
 	"sync"
 )
 

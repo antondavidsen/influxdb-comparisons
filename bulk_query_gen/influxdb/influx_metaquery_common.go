@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	bulkQuerygen "github.com/influxdata/influxdb-comparisons/bulk_query_gen"
+	bulkQuerygen "github.com/antondavidsen/influxdb-comparisons/bulk_query_gen"
 )
 
 type InfluxMetaquery struct {
@@ -95,7 +95,7 @@ func (d *InfluxMetaquery) MetaqueryCardinality(qi bulkQuerygen.Query) {
 	if d.language == InfluxQL {
 		query = fmt.Sprintf(`SHOW SERIES EXACT CARDINALITY ON %s`, d.DatabaseName)
 	} else {
-		query = fmt.Sprintf(`import "influxdata/influxdb"
+		query = fmt.Sprintf(`import "antondavidsen/influxdb"
 
 		influxdb.cardinality(
 			bucket: "%s",

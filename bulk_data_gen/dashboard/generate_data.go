@@ -1,8 +1,8 @@
 package dashboard
 
 import (
-	. "github.com/influxdata/influxdb-comparisons/bulk_data_gen/common"
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/devops"
+	. "github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/common"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/devops"
 	"time"
 )
 
@@ -44,7 +44,7 @@ type DashboardSimulatorConfig struct {
 	Start time.Time
 	End   time.Time
 
-	HostCount int64
+	HostCount  int64
 	HostOffset int64
 }
 

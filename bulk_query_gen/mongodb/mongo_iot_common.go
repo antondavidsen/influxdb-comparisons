@@ -2,8 +2,8 @@ package mongodb
 
 import (
 	"fmt"
-	bulkDataGenIot "github.com/influxdata/influxdb-comparisons/bulk_data_gen/iot"
-	bulkQuerygen "github.com/influxdata/influxdb-comparisons/bulk_query_gen"
+	bulkDataGenIot "github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/iot"
+	bulkQuerygen "github.com/antondavidsen/influxdb-comparisons/bulk_query_gen"
 	"math/rand"
 	"time"
 )
@@ -69,7 +69,7 @@ func (d *MongoIot) averageTemperatureDayByHourNHomes(qi bulkQuerygen.Query, nHom
 	} else {
 		tagSpec = "tags"
 		fieldSpec = "fields"
-		fieldExpr = M{ "$filter": M{ "input": "$fields", "as": "field", "cond": M{ "$eq": []string{ "$$field.key", "temperature" } } } }
+		fieldExpr = M{"$filter": M{"input": "$fields", "as": "field", "cond": M{"$eq": []string{"$$field.key", "temperature"}}}}
 		fieldPath = "fields.val"
 	}
 
@@ -111,7 +111,7 @@ func (d *MongoIot) averageTemperatureDayByHourNHomes(qi bulkQuerygen.Query, nHom
 							"unit": "hour",
 						},
 					},
-					fieldSpec:     fieldExpr, // was value: 1
+					fieldSpec: fieldExpr, // was value: 1
 					//"measurement": 1, // why was this set?
 				},
 			},
@@ -121,7 +121,7 @@ func (d *MongoIot) averageTemperatureDayByHourNHomes(qi bulkQuerygen.Query, nHom
 			{
 				"$group": M{
 					"_id":       M{"time_bucket": "$time_bucket", "tags": "$" + tagSpec}, // was: "$tags"
-					"agg_value": M{"$avg": "$" + fieldPath}, // was: $value
+					"agg_value": M{"$avg": "$" + fieldPath},                              // was: $value
 				},
 			},
 			{
@@ -166,7 +166,7 @@ func (d *MongoIot) averageTemperatureDayByHourNHomes(qi bulkQuerygen.Query, nHom
 							M{"$mod": S{"$timestamp_ns", bucketNano}},
 						},
 					},
-					fieldSpec:     fieldExpr, // was value: 1
+					fieldSpec: fieldExpr, // was value: 1
 					//"measurement": 1, // why was this set?
 				},
 			},
@@ -176,7 +176,7 @@ func (d *MongoIot) averageTemperatureDayByHourNHomes(qi bulkQuerygen.Query, nHom
 			{
 				"$group": M{
 					"_id":       M{"time_bucket": "$time_bucket", "tags": "$" + tagSpec}, // was: "$tags"
-					"agg_value": M{"$avg": "$" + fieldPath}, // was: $value
+					"agg_value": M{"$avg": "$" + fieldPath},                              // was: $value
 				},
 			},
 			{

@@ -2,7 +2,7 @@ package mongodb
 
 import (
 	"fmt"
-	bulkQuerygen "github.com/influxdata/influxdb-comparisons/bulk_query_gen"
+	bulkQuerygen "github.com/antondavidsen/influxdb-comparisons/bulk_query_gen"
 	"math/rand"
 	"time"
 )
@@ -102,7 +102,7 @@ func (d *MongoDevops) maxCPUUsageHourByMinuteNHosts(qi bulkQuerygen.Query, nhost
 	} else {
 		tagSpec = "tags"
 		fieldSpec = "fields"
-		fieldExpr = M{ "$filter": M{ "input": "$fields", "as": "field", "cond": M{ "$eq": []string{ "$$field.key", "usage_user" } } } }
+		fieldExpr = M{"$filter": M{"input": "$fields", "as": "field", "cond": M{"$eq": []string{"$$field.key", "usage_user"}}}}
 		fieldPath = "fields.val"
 	}
 
@@ -144,7 +144,7 @@ func (d *MongoDevops) maxCPUUsageHourByMinuteNHosts(qi bulkQuerygen.Query, nhost
 							"unit": "minute",
 						},
 					},
-					fieldSpec:     fieldExpr, // was value: 1
+					fieldSpec: fieldExpr, // was value: 1
 					//"measurement": 1, // why was this set?
 				},
 			},
@@ -154,7 +154,7 @@ func (d *MongoDevops) maxCPUUsageHourByMinuteNHosts(qi bulkQuerygen.Query, nhost
 			{
 				"$group": M{
 					"_id":       M{"time_bucket": "$time_bucket", "tags": "$" + tagSpec}, // was: "$tags"
-					"agg_value": M{"$max": "$" + fieldPath}, // was: $value
+					"agg_value": M{"$max": "$" + fieldPath},                              // was: $value
 				},
 			},
 			{
@@ -199,7 +199,7 @@ func (d *MongoDevops) maxCPUUsageHourByMinuteNHosts(qi bulkQuerygen.Query, nhost
 							M{"$mod": S{"$timestamp_ns", bucketNano}},
 						},
 					},
-					fieldSpec:     fieldExpr, // was value: 1
+					fieldSpec: fieldExpr, // was value: 1
 					//"measurement": 1, // why was this set?
 				},
 			},
@@ -209,7 +209,7 @@ func (d *MongoDevops) maxCPUUsageHourByMinuteNHosts(qi bulkQuerygen.Query, nhost
 			{
 				"$group": M{
 					"_id":       M{"time_bucket": "$time_bucket", "tags": "$" + tagSpec}, // was: "$tags"
-					"agg_value": M{"$max": "$" + fieldPath}, // was: $value
+					"agg_value": M{"$max": "$" + fieldPath},                              // was: $value
 				},
 			},
 			{

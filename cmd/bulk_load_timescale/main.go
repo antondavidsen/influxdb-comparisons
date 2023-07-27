@@ -14,8 +14,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/influxdata/influxdb-comparisons/bulk_load"
-	"github.com/influxdata/influxdb-comparisons/util/report"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_load"
+	"github.com/antondavidsen/influxdb-comparisons/util/report"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
 
@@ -24,8 +24,8 @@ import (
 	"encoding/binary"
 	"io"
 
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/common"
-	timescale_serialization "github.com/influxdata/influxdb-comparisons/timescale_serializaition"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/common"
+	timescale_serialization "github.com/antondavidsen/influxdb-comparisons/timescale_serializaition"
 )
 
 // Output data format choices:

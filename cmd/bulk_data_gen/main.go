@@ -12,7 +12,8 @@
 //
 // Supported use cases:
 // Devops: scale_var is the number of hosts to simulate, with log messages
-//         every 10 seconds.
+//
+//	every 10 seconds.
 package main
 
 import (
@@ -25,12 +26,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/common"
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/dashboard"
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/devops"
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/iot"
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/metaqueries"
-	multiMeasurement "github.com/influxdata/influxdb-comparisons/bulk_data_gen/multi_measurement"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/common"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/dashboard"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/devops"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/iot"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/metaqueries"
+	multiMeasurement "github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/multi_measurement"
 )
 
 // Output data format choices:

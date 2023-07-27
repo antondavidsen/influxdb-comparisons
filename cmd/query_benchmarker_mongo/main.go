@@ -20,9 +20,9 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 
-	"github.com/influxdata/influxdb-comparisons/bulk_query"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/mongodb"
-	"github.com/influxdata/influxdb-comparisons/util/report"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/mongodb"
+	"github.com/antondavidsen/influxdb-comparisons/util/report"
 )
 
 type MongoQueryBenchmarker struct {
@@ -133,7 +133,7 @@ func (b *MongoQueryBenchmarker) RunProcess(i int, workersGroup *sync.WaitGroup, 
 			log.Printf("get collection handle for %s/%s\n", dn, cn)
 			db := b.client.Database(dn)
 			collection := db.Collection(cn)
-			specs, err := db.ListCollectionSpecifications(context.TODO(), bson.M{ "name": cn })
+			specs, err := db.ListCollectionSpecifications(context.TODO(), bson.M{"name": cn})
 			if err != nil {
 				log.Fatalf("db ListCollectionSpecifications error: %v", err)
 			}
@@ -143,7 +143,7 @@ func (b *MongoQueryBenchmarker) RunProcess(i int, workersGroup *sync.WaitGroup, 
 			log.Printf("collection type: %s\n", specs[0].Type)
 			h = &Handle{
 				collection: collection,
-				typ: specs[0].Type,
+				typ:        specs[0].Type,
 			}
 			handles[cn] = h
 		}

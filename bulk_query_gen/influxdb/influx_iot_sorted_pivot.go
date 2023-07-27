@@ -1,7 +1,7 @@
 package influxdb
 
 import (
-	bulkQuerygen "github.com/influxdata/influxdb-comparisons/bulk_query_gen"
+	bulkQuerygen "github.com/antondavidsen/influxdb-comparisons/bulk_query_gen"
 	"time"
 )
 
@@ -16,7 +16,7 @@ func NewInfluxQLIotSortedPivot(dbConfig bulkQuerygen.DatabaseConfig, queriesFull
 	underlying := NewInfluxIotCommon(InfluxQL, dbConfig, queriesFullRange, queryInterval, scaleVar).(*InfluxIot)
 	return &InfluxIotSortedPivot{
 		InfluxIot: *underlying,
-		interval: queryInterval,
+		interval:  queryInterval,
 	}
 }
 
@@ -24,7 +24,7 @@ func NewFluxIotSortedPivot(dbConfig bulkQuerygen.DatabaseConfig, queriesFullRang
 	underlying := NewInfluxIotCommon(Flux, dbConfig, queriesFullRange, queryInterval, scaleVar).(*InfluxIot)
 	return &InfluxIotSortedPivot{
 		InfluxIot: *underlying,
-		interval: queryInterval,
+		interval:  queryInterval,
 	}
 }
 

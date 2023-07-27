@@ -6,7 +6,7 @@ import (
 
 	"math/rand"
 
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/common"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/common"
 )
 
 const MeasSig = "Measurement-%d"

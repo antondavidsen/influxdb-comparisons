@@ -3,7 +3,7 @@ package common
 import (
 	"encoding/binary"
 	"fmt"
-	"github.com/influxdata/influxdb-comparisons/timescale_serializaition"
+	"github.com/antondavidsen/influxdb-comparisons/timescale_serializaition"
 	"io"
 	"log"
 	"reflect"
@@ -74,8 +74,6 @@ func (s *SerializerTimescaleSql) SerializeSize(w io.Writer, points int64, values
 
 // SerializeTimeScaleBin writes Point data to the given writer, conforming to the
 // Binary GOP encoded format to write
-//
-//
 func (t *SerializerTimescaleBin) SerializePoint(w io.Writer, p *Point) (err error) {
 
 	var f timescale_serialization.FlatPoint

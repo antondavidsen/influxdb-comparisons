@@ -52,7 +52,7 @@ func (q *HLQuery) ToQueryPlanWithServerAggregation() (qp *QueryPlanWithServerAgg
 		end := ti.End
 
 		// the following two special cases ensure equivalency with rounded time boundaries as seen in influxdb:
-		// https://docs.influxdata.com/influxdb/v0.13/query_language/data_exploration/#rounded-group-by-time-boundaries
+		// https://docs.antondavidsen.com/influxdb/v0.13/query_language/data_exploration/#rounded-group-by-time-boundaries
 		if start.Before(q.TimeStart) {
 			start = q.TimeStart
 		}

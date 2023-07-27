@@ -10,8 +10,8 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/common"
-	"github.com/influxdata/influxdb-comparisons/bulk_load"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/common"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_load"
 	"io"
 	"io/ioutil"
 	"log"
@@ -22,7 +22,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/influxdata/influxdb-comparisons/util/report"
+	"github.com/antondavidsen/influxdb-comparisons/util/report"
 	"github.com/valyala/fasthttp"
 	"strconv"
 )

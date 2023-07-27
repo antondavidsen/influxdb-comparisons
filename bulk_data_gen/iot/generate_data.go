@@ -2,7 +2,7 @@ package iot
 
 import (
 	"fmt"
-	. "github.com/influxdata/influxdb-comparisons/bulk_data_gen/common"
+	. "github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/common"
 	"time"
 )
 
@@ -11,7 +11,7 @@ type IotSimulatorConfig struct {
 	Start time.Time
 	End   time.Time
 
-	SmartHomeCount int64
+	SmartHomeCount  int64
 	SmartHomeOffset int64
 }
 

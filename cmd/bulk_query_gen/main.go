@@ -13,16 +13,16 @@ import (
 	"sort"
 	"time"
 
-	"github.com/influxdata/influxdb-comparisons/bulk_data_gen/common"
-	bulkQueryGen "github.com/influxdata/influxdb-comparisons/bulk_query_gen"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/cassandra"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/elasticsearch"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/graphite"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/influxdb"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/mongodb"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/opentsdb"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/splunk"
-	"github.com/influxdata/influxdb-comparisons/bulk_query_gen/timescaledb"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_data_gen/common"
+	bulkQueryGen "github.com/antondavidsen/influxdb-comparisons/bulk_query_gen"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/cassandra"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/elasticsearch"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/graphite"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/influxdb"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/mongodb"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/opentsdb"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/splunk"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query_gen/timescaledb"
 )
 
 const (
@@ -419,9 +419,9 @@ var useCaseMatrix = map[string]map[string]map[string]bulkQueryGen.QueryGenerator
 
 // Program option vars:
 var (
-	useCase        string
-	queryType      string
-	format         string
+	useCase   string
+	queryType string
+	format    string
 
 	// MongoDB-specific
 	documentFormat string

@@ -2,7 +2,6 @@
 //
 // It reads encoded Query objects from stdin, and makes concurrent requests
 // to the provided TimescaleDB endpoint using jackc/pgx.
-//
 package main
 
 import (
@@ -15,13 +14,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/influxdata/influxdb-comparisons/bulk_query"
+	"github.com/antondavidsen/influxdb-comparisons/bulk_query"
 
 	"context"
 	"strconv"
 	"strings"
 
-	"github.com/influxdata/influxdb-comparisons/util/report"
+	"github.com/antondavidsen/influxdb-comparisons/util/report"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
 )

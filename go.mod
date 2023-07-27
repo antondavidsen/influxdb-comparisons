@@ -1,4 +1,4 @@
-module github.com/influxdata/influxdb-comparisons
+module github.com/antondavidsen/influxdb-comparisons
 
 go 1.16
 

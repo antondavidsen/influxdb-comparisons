@@ -6,8 +6,8 @@ import (
 	"io"
 	"reflect"
 
+	"github.com/antondavidsen/influxdb-comparisons/mongo_serialization"
 	"github.com/google/flatbuffers/go"
-	"github.com/influxdata/influxdb-comparisons/mongo_serialization"
 )
 
 type SerializerMongo struct {
